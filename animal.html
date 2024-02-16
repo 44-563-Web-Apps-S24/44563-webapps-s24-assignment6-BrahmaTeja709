@@ -10,54 +10,31 @@
     <h2>Animal game by BrahmaTeja</h2>
      
     <form>
-        <label for="form1_age_secretAnimal">The hidden animal type: </label>
-        <input type ="password" id="secretAnimal" value="Chicken" name="form1_age" min=10 max=50 step=2 value=30> <br>
-     
-        <label for="guessAnimal">Guess the animal: </label>
-        <input type ="text" id="guessAnimal" name="form1_nick" autofocus> <br>
-     
+        <label for="AnimalName">The hidden animal type</label>
+        <input type="password" id="AnimalName" value="Chicken">
+        <br>
+        <label for="guessAnimal">Guess the animal</label>
+        <input type="text" id="guessAnimal">
+        <br>
         <button type="button" onclick="checkAnimal()">Check the guess</button>
-        <input type="button" onclick="checkAnimal()" value="Get values from form">
     </form>
-     
-     
-    <p id="result">This text will be replaced </p>
-     
+    <p id="ValueHolder">Correct: 0 | Wrong: 0</p>
     <script>
-     
-    let wrong = 0;
-    let correct = 0;
-     
-    function checkAnimal(){
-     
-        const secretAnimal = document.getElementById("secretAnimal").value;
-        const guessAnimal = document.getElementById("guessAnimal").value;
-     
-        if (secretAnimal === guessAnimal) {
-            correct++;
-            alert("Ruff ruff");
-          } else {
-            wrong++;
-            alert("Grrrr");
-          }
-     
-          // Update the result element
-          const resultElement = document.getElementById("result");
-          resultElement.innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
-         
-        //console.log("Getting form values")
-        //age = document.getElementById("form1_age").value
-        //nick = document.getElementById("form1_nick").value
-        //confirmed = confirm("Are these the values? "+age+" and "+nick)
-       
-        //out = document.getElementById("result")
-        //if(confirmed){
-            //out.innerHTML = "Values were confirmed"
-        //} else {
-            //out.innerHTML = "Values were not confirmed"
-        //}
-    }
-    </script>
-     
+        let correct = 0;
+        let wrong = 0;
+        function checkAnimal() {
+            const AnimalName = document.getElementById("AnimalName").value;
+            const guessedAnimal = document.getElementById("guessAnimal").value;
+            if (AnimalName.toLowerCase() === guessedAnimal.toLowerCase()) {
+                correct++;
+                alert("Ruff ruff");
+            } else {
+                wrong++;
+                alert("Grrrr");
+            }
+            const resultValue = document.getElementById("ValueHolder");
+            resultValue.innerHTML = `Correct: ${correct} | Wrong: ${wrong}`;
+        }
+    </script>   
     </body>
-</html> 
+</html>
