@@ -42,8 +42,7 @@
 <div>
     <img src="cappy.jpg" id="selfimage" width="150" height="150" onclick="selectImage()">
   </div>
-
-  <script>
+<script>
         var useImage = 1
         function selectImage() {
             switch (useImage) {
@@ -51,10 +50,12 @@
                     document.getElementById("selfimage").src = "cappy.jpg";
                     useImage++
                     break
+
                 case 2:
                     document.getElementById("selfimage").src = "hotchocolate.jpg";
                     useImage++
                     break
+                    
                 case 3:
                     document.getElementById("selfimage").src = "neera.jpg";
                     useImage = 1
@@ -63,9 +64,5 @@
             }
         }
            </script>
-
-
-
-
-    </body>
+ </body>
 </html>
