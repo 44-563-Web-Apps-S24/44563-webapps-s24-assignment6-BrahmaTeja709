@@ -24,7 +24,7 @@
    let number = parseFloat(document.getElementById("count").value);
    let reduction = parseFloat(document.getElementById("reductions").value);
    let myOutput = "";
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i++){
        let discountedPrice = price * number - (price * number * (reduction / 100));
        myOutput += `${reduction}% is ${discountedPrice.toFixed(1)}; `;
        reduction++;
@@ -32,4 +32,40 @@ for (let i = 0; i < 5; i++) {
 document.getElementById('totals').innerHTML = 'Totals are: ' + myOutput;
 }
 </script>
+
+<form>
+    <div id="results">Calculations:</div>
+
+    <label for="sum">Sum</label>
+    <input type="radio" id="sum" onclick="chooseOp()" name="operation"  value="sum">
+    <label for="mult">multiply</label>
+    <input type="radio" id="mult" onclick="chooseOp()" name="operation"  value="multiply">
+    <label for="exp">exponent</label>
+    <input type="radio" id="exp" onclick="chooseOp()" name="operation"  value="exponent">
+  </form>
+
+  <p id="result">Result displayed!! </p>
+
+ <script>
+        function chooseOp() {
+            let price = parseFloat(document.getElementById("price").value);
+            let reduction = parseFloat(document.getElementById("reductions").value);
+            let sum = document.getElementById("sum").checked;
+            let mul = document.getElementById("mult").checked;
+            let exp = document.getElementById("exp").checked;
+            if(sum) {
+                result = price+reduction;
+                document.getElementById("result").innerHTML = 'Sum of ' + price + ' and ' + reduction + ' is ' + result;
+            }
+            else if(mul) {
+                result = price*reduction;
+                document.getElementById("result").innerHTML = 'Product of ' + price + ' and ' + reduction + ' is ' + result;
+            }
+            else if(exp) {
+                result = Math.pow(price, reduction);
+                document.getElementById("result").innerHTML = price + ' raised to the power of ' + reduction + ' is ' + result;
+            }
+        }
+ </script>
+
 </body>
