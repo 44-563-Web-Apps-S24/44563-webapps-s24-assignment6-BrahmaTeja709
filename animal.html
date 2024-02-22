@@ -45,6 +45,9 @@
             }
             const resultValue = document.getElementById("ValueHolder");
             resultValue.innerHTML = `Correct: ${correct} | Wrong: ${wrong}`;
+            if(Wrong>Correct){
+                resultValue.innerHTML ="Sorry, too many guesses";
+            }
         }
     </script>   
 
